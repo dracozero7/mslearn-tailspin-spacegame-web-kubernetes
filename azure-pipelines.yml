@@ -75,10 +75,10 @@ stages:
               action: deploy
               KubernetesServiceConnection: 'Kubernetes Cluster Connection'
               namespace: 'default'
-              manifest: |
+              manifests: |
                 $(Pipeline.Workspace)/manifest/deployment.yml
                 $(Pipeline.Workspace)/manifest/service.yml
-              imagePullSecret: |
+              imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
                 $(RegistryName)/$(webRepository):$(tag)
